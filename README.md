@@ -21,9 +21,10 @@ For more information on git submodules please see the documentation: https://git
 
 ## Run Main
 
-to start the app type:
+to start the app run two commands:
 
-`npm start`
+1. `npm i`
+2. `npm start`
 
 on the first run through structure-cli will ask for your Snowflake Account credentials. These will automatically be stored in your home directory.
 
