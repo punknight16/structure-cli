@@ -4,6 +4,20 @@ scaffolding for open source Structure.rest CLI tool
 
 ---
 
+## Clone this project
+
+To clone this project simply use the command:
+
+`git clone https://github.com/punknight16/structure-cli.git`
+
+Note that this project uses submodules, so you must run two additional commands.
+
+1. `git submodule init` to initialize your local configuration file
+2. `git submodule update` to fetch all the data from the submodule and check out the appropriate commit
+
+For more information on git submodules please see the documentation: https://git-scm.com/book/en/v2/Git-Tools-Submodules
+
+---
 
 ## Run Main
 
