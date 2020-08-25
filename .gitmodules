@@ -1,0 +1,3 @@
+[submodule "structure-shared"]
+	path = structure-shared
+	url = https://github.com/punknight16/structure-shared
