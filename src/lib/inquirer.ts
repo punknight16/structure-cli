@@ -51,6 +51,30 @@ export const askSnowflakeCredentials = () => {
           return 'Please enter your Snowflake password or press ctrl+C to exit.';
         }
       }
+    },
+    {
+      name: 'destionationDB',
+      type: 'input',
+      message: 'Enter your destinationDB:',
+      validate: function(value) {
+        if (value.length) {
+          return true;
+        } else {
+          return 'Please enter your destinationDB or press ctrl+C to exit.';
+        }
+      }
+    },
+    {
+      name: 'destionationSchema',
+      type: 'input',
+      message: 'Enter your destinationSchema:',
+      validate: function(value) {
+        if (value.length) {
+          return true;
+        } else {
+          return 'Please enter your destinationSchema or press ctrl+C to exit.';
+        }
+      }
     }
   ];
   return Inquirer.prompt(questions);

@@ -11,9 +11,11 @@ export const getInstance = () => {
 
 export const getStoredSnowflakeProfile = () => {
   return {
-  	account: conf.get('snowflake.account'),
-  	username: conf.get('snowflake.username'),
-  	password: conf.get('snowflake.password')
+  	snowflakeAccount: conf.get('snowflake.account'),
+  	snowflakeUsername: conf.get('snowflake.username'),
+  	snowflakePassword: conf.get('snowflake.password'),
+    destinationDatabase: conf.get('snowflake.destinationDatabase'),
+    destinationSchema: conf.get('snowflake.destinationSchema')
   }
 
 }
@@ -28,6 +30,8 @@ export const getSnowflakeProfile = async () => {
         conf.set('snowflake.account', creds.account);
         conf.set('snowflake.username', creds.username);
         conf.set('snowflake.password', creds.password);
+        conf.set('snowflake.destinationDatabase', creds.destinationDatabase);
+        conf.set('snowflake.destinationSchema', creds.destinationSchema);
         return creds;
       } else {
         throw new Error("Valdiation Error: Profile was not generated");

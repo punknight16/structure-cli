@@ -1,4 +1,4 @@
-import * as Shared from '../../structure-shared/src/';
+import * as Shared from 'placeholder-shared';
 import * as YAML from 'yaml';
 
 export const runJob = (userData:any) => {

@@ -6,6 +6,10 @@ import * as Inquirer from './lib/inquirer';
 import * as Profile from './lib/profile';
 import * as Executor from './lib/executor'
 
+process.env.NODE_ENV = 'cli';
+require('store');
+
+
 Clear.default();
 
 console.log(
@@ -49,23 +53,46 @@ console.log(
 )
 
 const run = async () => {
+  //get profile stuff
   let profile = Profile.getStoredSnowflakeProfile();
-  if(!profile.account || !profile.username || !profile.password) {
+  if(!profile.snowflakeAccount || !profile.snowflakeUsername || !profile.snowflakePassword) {
     profile = await Profile.getSnowflakeProfile();
   }
   console.log("profile: ", JSON.stringify(profile, null, 4));
+  //get ymlData stuff
+  let file;
+  if(Files.fileExists('data.yml')){
+  	file = {name: 'data.yml'}
+  } else {
+  	file = await Inquirer.askStructureFilename();
+	  console.log("file: ", JSON.stringify(file, null, 4));
+	  if (!Files.fileExists(file.name)) {
+		  console.log(Chalk.default.red('File does not exist'));
+		  process.exit();
+		} 
+  }
+  
+	const ymlFile = await Files.loadFile(file.name);
+	const partialUserState = Executor.transformYmlDataToUserStateData(ymlFile);
+	const tasks = {
+		1: profile
+	};
+	const userState = Object.assign(
+		{}, 
+		{userConfig: profile}, 
+		{tasks: tasks},
+		partialUserState);
+	console.log('userState: ', userState);
+	Executor.runJob(userState)
+	.then((jobState)=>{
+		console.log("jobState: ", jobState);
+		process.exit();
+	})
+	.catch((err)=>{
+		console.log(err);
+		process.exit();
+	})
 
-  const file = await Inquirer.askStructureFilename();
-  console.log("file: ", JSON.stringify(file, null, 4));
-  if (!Files.fileExists(file.name)) {
-	  console.log(Chalk.default.red('File does not exist'));
-	  process.exit();
-	} else {
-		const ymlFile = await Files.loadFile(file.name);
-		const partialUserState = Executor.transformYmlDataToUserStateData(ymlFile);
-		const userState = Object.assign({}, profile, partialUserState);
-		Executor.runJob(userState);	
-	}
 };
 
 
