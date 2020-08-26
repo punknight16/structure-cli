@@ -53,9 +53,19 @@ const run = async () => {
   if(!profile.account || !profile.username || !profile.password) {
     profile = await Profile.getSnowflakeProfile();
   }
-  console.log(profile);
-  Executor.runJob({});
-  
+  console.log("profile: ", JSON.stringify(profile, null, 4));
+
+  const file = await Inquirer.askStructureFilename();
+  console.log("file: ", JSON.stringify(file, null, 4));
+  if (!Files.fileExists(file.name)) {
+	  console.log(Chalk.default.red('File does not exist'));
+	  process.exit();
+	} else {
+		const ymlFile = await Files.loadFile(file.name);
+		const partialUserState = Executor.transformYmlDataToUserStateData(ymlFile);
+		const userState = Object.assign({}, profile, partialUserState);
+		Executor.runJob(userState);	
+	}
 };
 
 

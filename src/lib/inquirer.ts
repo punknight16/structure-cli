@@ -1,5 +1,6 @@
 import Inquirer from 'inquirer';
 import * as Chalk from 'chalk';
+import * as files from './files';
 
 export const askSnowflakeCredentials = () => {
   const questions = [
@@ -54,3 +55,25 @@ export const askSnowflakeCredentials = () => {
   ];
   return Inquirer.prompt(questions);
 };
+
+
+export const askStructureFilename = () => {
+    const argv = require('minimist')(process.argv.slice(2));
+
+    const questions = [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Enter the filename of your Structure .yml file:',
+        default: argv._[0] || files.getCurrentDirectoryBase(),
+        validate: function( value ) {
+          if (value.length) {
+            return true;
+          } else {
+            return 'Please enter a filename.';
+          }
+        }
+      }
+    ];
+    return Inquirer.prompt(questions);
+}

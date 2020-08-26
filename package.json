@@ -21,7 +21,8 @@
     "esm": "^3.2.25",
     "figlet": "^1.5.0",
     "inquirer": "^7.3.3",
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "yaml": "^1.10.0"
   },
   "devDependencies": {
     "jest": "^26.4.1",
