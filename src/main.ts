@@ -4,7 +4,7 @@ import * as Clear from 'clear';
 import * as Files from './lib/files';
 import * as Inquirer from './lib/inquirer';
 import * as Profile from './lib/profile';
-import * as Shared from '../structure-shared/src/'
+import * as Executor from './lib/executor'
 
 Clear.default();
 
@@ -54,15 +54,10 @@ const run = async () => {
     profile = await Profile.getSnowflakeProfile();
   }
   console.log(profile);
-
-  Shared.Snowflake.runListTables({
-  	snowflakeAccount: 'dra44815',
-  	snowflakeUsername: 'punknight',
-  	snowflakePassword: 's(~gy{a(-oI+_3q10Ma`AoB,|',
-  	snowflakeRole: '',
-  	snowflakeWarehouse: ''
-  })
+  Executor.runJob({});
+  
 };
+
 
 run();
 
