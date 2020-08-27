@@ -53,7 +53,7 @@ export const askSnowflakeCredentials = () => {
       }
     },
     {
-      name: 'destionationDB',
+      name: 'destinationDatabase',
       type: 'input',
       message: 'Enter your destinationDB:',
       validate: function(value) {
@@ -65,7 +65,7 @@ export const askSnowflakeCredentials = () => {
       }
     },
     {
-      name: 'destionationSchema',
+      name: 'destinationSchema',
       type: 'input',
       message: 'Enter your destinationSchema:',
       validate: function(value) {

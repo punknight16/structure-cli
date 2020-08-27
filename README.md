@@ -1,4 +1,4 @@
-# structure-cli
+#structure-cli
 
 scaffolding for open source Structure.rest CLI tool
 
@@ -16,14 +16,13 @@ Note that this project uses submodules, so you must run these additional command
 1. `git submodule init` to initialize your local configuration file
 2. `git submodule update` to fetch all the data from the submodule and check out 
 the appropriate commit
-3. `mv structure-shared shared` to change the directory name structure-shared to shared`
-4. `npm uninstall shared`
+3. `cd structure-shared` to change the directory to structure-shared`
+4. `git pull` to make sure you have the latest version of shared
 5. `npm i`
-6. `npm install shared`
-7. `cd shared`
-8. `npm i`
-9. `tsc `
-10. `cd ..`
+6. `tsc`
+7. `cd ..`
+8. `mv structure-shared shared`
+9. `npm i`
 
 For more information on git submodules please see the documentation: https://git-scm.com/book/en/v2/Git-Tools-Submodules
 

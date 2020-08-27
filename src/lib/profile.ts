@@ -26,7 +26,12 @@ export const getSnowflakeProfile = async () => {
     try {
       const creds = await Inquirer.askSnowflakeCredentials();
       
-      if(creds.hasSnowflake && creds.account && creds.username && creds.password) {
+      if(creds.hasSnowflake 
+        && creds.account 
+        && creds.username 
+        && creds.password
+        && creds.destinationDatabase
+        && creds.destinationSchema) {
         conf.set('snowflake.account', creds.account);
         conf.set('snowflake.username', creds.username);
         conf.set('snowflake.password', creds.password);
