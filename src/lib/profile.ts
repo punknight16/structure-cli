@@ -37,7 +37,13 @@ export const getSnowflakeProfile = async () => {
         conf.set('snowflake.password', creds.password);
         conf.set('snowflake.destinationDatabase', creds.destinationDatabase);
         conf.set('snowflake.destinationSchema', creds.destinationSchema);
-        return creds;
+        return {
+          snowflakeAccount: creds.account),
+          snowflakeUsername: creds.username,
+          snowflakePassword: creds.password,
+          destinationDatabase: creds.destinationDatabase,
+          destinationSchema: creds.destinationSchema
+         }
       } else {
         throw new Error("Valdiation Error: Profile was not generated");
       }

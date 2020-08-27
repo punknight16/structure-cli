@@ -17,7 +17,7 @@ Note that this project uses submodules, so you must run these additional command
 2. `git submodule update` to fetch all the data from the submodule and check out 
 the appropriate commit
 3. `cd structure-shared` to change the directory to structure-shared`
-4. `git pull` to make sure you have the latest version of shared
+4. `git pull origin master` to make sure you have the latest version of shared
 5. `npm i`
 6. `tsc`
 7. `cd ..`
