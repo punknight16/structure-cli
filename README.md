@@ -20,6 +20,10 @@ the appropriate commit
 4. `npm uninstall shared`
 5. `npm i`
 6. `npm install shared`
+7. `cd shared`
+8. `npm i`
+9. `tsc `
+10. `cd ..`
 
 For more information on git submodules please see the documentation: https://git-scm.com/book/en/v2/Git-Tools-Submodules
 
@@ -44,6 +48,12 @@ On macOS, you’ll find the file in
 
 On Linux, it’s in 
 `/home/[YOUR-USERNME]/.config/configstore/ginit.json`
+
+---
+
+## Run structure as an executable
+
+structure
 
 ---
 
