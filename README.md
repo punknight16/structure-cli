@@ -10,23 +10,34 @@ To clone this project simply use the command:
 
 `git clone https://github.com/punknight16/structure-cli.git`
 
-Note that this project uses submodules, so you must run two additional commands.
+Note that this project uses submodules, so you must run these additional commands.
 
+0. `cd structure-cli` to get into the structure-cli directory
 1. `git submodule init` to initialize your local configuration file
-2. `git submodule update` to fetch all the data from the submodule and check out the appropriate commit
+2. `git submodule update` to fetch all the data from the submodule and check out 
+the appropriate commit
+3. `mv structure-shared shared` to change the directory name structure-shared to shared`
+4. `npm uninstall shared`
+5. `npm i`
+6. `npm install shared`
 
 For more information on git submodules please see the documentation: https://git-scm.com/book/en/v2/Git-Tools-Submodules
+
+Look for the subheading  *Cloning a Project with Submodules*
 
 ---
 
 ## Run Main
 
-to start the app run two commands:
+To run the application:
 
-1. `npm i`
-2. `npm start`
+0. `cd ..` change to the parent directory of structure-cli
+1. `git clone <your structure-rest-repo>`
+2. `mv <your structure-rest-repo>/data.yml structure-cli`
+3. `cd structure-cli`
+4. `npm start`
 
-on the first run through structure-cli will ask for your Snowflake Account credentials. These will automatically be stored in your home directory.
+On the first run through, structure-cli will ask for your Snowflake Account credentials. These will automatically be stored in your home directory.
 
 On macOS, you’ll find the file in 
 `/Users/[YOUR-USERNME]/.config/configstore/structure-profile.json`

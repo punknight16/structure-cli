@@ -1,6 +1,9 @@
 {
   "name": "structure-cli",
   "version": "1.0.0",
+  "bin": {
+    "structure": "./bin/structure"
+  },
   "description": "",
   "main": "index.js",
   "module": "main.js",
@@ -8,8 +11,8 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "build-watch": "tsc --declaration --watch",
-    "start": "tsc && node -r esm src/main",
-    "debug": "tsc && node debug -r esm src/main"
+    "start": "tsc && node src/index",
+    "debug": "tsc && node debug src/index"
   },
   "keywords": [],
   "author": "",
