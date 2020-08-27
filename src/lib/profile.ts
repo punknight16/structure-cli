@@ -38,7 +38,7 @@ export const getSnowflakeProfile = async () => {
         conf.set('snowflake.destinationDatabase', creds.destinationDatabase);
         conf.set('snowflake.destinationSchema', creds.destinationSchema);
         return {
-          snowflakeAccount: creds.account),
+          snowflakeAccount: creds.account,
           snowflakeUsername: creds.username,
           snowflakePassword: creds.password,
           destinationDatabase: creds.destinationDatabase,
