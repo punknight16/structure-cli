@@ -52,7 +52,10 @@ On Linux, it’s in
 
 ## Run structure as an executable
 
-structure
+Use the following commands to have structure run, when you type structure:
+
+1. `npm link`
+2. `structure`
 
 ---
 
